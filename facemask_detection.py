@@ -140,12 +140,13 @@ print("The number of images without facemask in the test set labelled 'no':", le
 #                               epochs=30,
 #                               validation_data=validation_generator,
 #                               callbacks=[checkpoint])
+
 # model.save('trained_model.h5')
 
 model = load_model('trained_model.h5')
 face_clsfr=cv2.CascadeClassifier('palm.xml')
 
-labels_dict={0:'without_mask',1:'with_mask'}
+labels_dict={0:'No_Glove',1:'Glove'}
 color_dict={0:(0,0,255),1:(0,255,0)}
 
 size = 4
