@@ -7,7 +7,7 @@
 For our complete submisisson, headover to - [Illuminati](https://github.com/swatig23/myntra_ILLUMINATI)  
 This is the second component of our project - [**Real Time Glove Detection**](https://github.com/Ridam2k/ILLUMINATI-Glove-Recognition)
 
-Before going further please see the demo - ****Insert Video****
+Before going further please see the demo - [Demo](https://photos.app.goo.gl/HNz73R7qVCbS2LVp9)
 
 # Features
 
