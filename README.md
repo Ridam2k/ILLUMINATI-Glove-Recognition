@@ -1,37 +1,108 @@
-﻿# Face-Mask-Detection
-In order to protect ourselves from the COVID-19 Pandemic, almost every one of us tend to wear a face mask. It becomes increasingly necessary to check if the people in the crowd wear face masks in most public gatherings such as Malls, Theatres, Parks. The development of an AI solution to detect if the person is wearing a face mask and allow their entry would be of great help to the society. In this, a simple Face Mask detection system is built using the Deep Learning technique called as Convolutional Neural Networks (CNN). This CNN Model is built using the TensorFlow framework and the OpenCV library which is highly used for real-time applications. This model can also be used to develop a full-fledged software to scan every person before they can enter the public gathering. Using this model, an accuracy of over 96% is obtained. This can also be used further to achieve even higher levels of accuracy.
+﻿
 
-Medium Article - [Click Here!](https://towardsdatascience.com/covid-19-face-mask-detection-using-tensorflow-and-opencv-702dd833515b)
+# Team ILLUMINATI - Glove Detection
 
-### Data - 
-I have used the face mask dataset provided by [Prajna Bhandary](https://www.linkedin.com/feed/update/urn%3Ali%3Aactivity%3A6655711815361761280/)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-### CNN Architecture -
-In this proposed method, the Face Mask detection model is built using the Sequential API of the keras library. This allows us to create the new layers for our model step by step. The various layers used for our CNN model is described below.
+For our complete submisisson, headover to - [Illuminati](https://github.com/swatig23/myntra_ILLUMINATI)  
+This is the second component of our project - [**Real Time Glove Detection**](https://github.com/Ridam2k/ILLUMINATI-Glove-Recognition)
 
-The first layer is the Conv2D layer with 100 filters and the filter size or the kernel size of 3X3. In this first step, the activation function used is the ‘ReLu’. This ReLu function stands for Rectified Linear Unit which will output the input directly if is positive, otherwise, it will output zero.  The input size is also initialized as 150X150X3 for all the images to be trained and tested using this model
+Before going further please see the demo - ****Insert Video****
 
-In the second layer, the MaxPooling2D is used with the pool size of 2X2.
+# Features
 
-The next layer is again a Conv2D layer with another 100 filters of the same filter size 3X3 and the activation function used is the ‘ReLu’. This Conv2D layer is followed by a MaxPooling3=2D layer with pool size 2X2.
+-   Easy 5 step setup on your local PC.
+-   No external peripherals required, your in-built webcam is all it needs!
+-   Can be easily accessed through our interactive website
+-   Boasts of an accuracy of 90-93% and identifies gloves of varying colors and shapes
 
-In the next step, we use the Flatten() layer to flatten all the layers into a single 1D layer.
+You can also:
 
-After the Flatten layer, we use the Dropout (0.5) layer to prevent the model from overfitting.
+-   Use this as an API and integrate with various other projects
 
-Finally, towards the end, we use the Dense layer with 50 units and the activation function as ‘ReLu’.
+# Tech
 
-The last layer of our model will be another Dense Layer, with only two units and the activation function used will be the ‘Softmax’ function. The softmax function outputs a vector which will represent the probability distributions of each of the input units. Here, two input units are used. The softmax function will output a vector with two probability distribution values.
+Our RT-Glove Detection uses a number of open source projects and libraries to work properly:
 
-![alt text](https://github.com/mk-gurucharan/Face-Mask-Detection/blob/master/cnn_facemask.png)
+-   Tensorflow - For training our DL Model.
+-   Keras - For helping us evaluate our DL Model
+-   Open CV - For Hand Recognition and all our computer vision needs.
+-   Caffe - A deep learning framework made with expression, speed, and modularity in mind. Also used for Hand Detection.
+-   Streamlit - Open Source Project that helps us serve our models as a web app.
 
-After building the model, we compile the model and define the loss function and optimizer function. In this model, we use the ‘Adam’ Optimizer and the ‘Binary Cross Entropy’ as the Loss function for training purpose.
+# How Does it Work?
 
-For the face detection, the Haar Feature-based Cascade Classifiers are used in this experiment. It is is a machine learning object detection algorithm used to identify objects in an image or video and based on the concept of  features proposed by Paul Viola and Michael Jones. In this, a cascade function is trained from a lot of positive and negative images. It is then used to detect objects in other images.
+## Dataset
 
-The cascade classifier used for this experiment is the Face Detection Cascade Classifier. In this, a model is pre-trained with frontal facial features is developed and used in this experiment to detect the faces in real-time.
+-   We use a dataset that consists of **1135 images** belonging to two classes:
+    -   **yesreal: 635 images**
+    -   **noreal: 500 images**
+-   Link to dataset - [Download](https://www.kaggle.com/adityagupta008/medical-gloves-recognition-dataset)
 
-Finally, the CNN model along with the cascade classifier is trained for 30 epochs with two classes, one denoting the class of images with the face masks and the other without face masks. 
+## Training
 
-### Demo - 
-![](demo.gif)
+**Step 1:** Prepare Data and Augment Data - First we start by augmenting data to increase training data size using the following methods:
+
+-   Horizontal Flip
+-   Zoom
+-   Width and Height Shift Range
+
+**Step2:** The overall model developed is quite light-weight as it uses a fairly simple CNN architecture for classifying the real-time detected image into “Glove” and “No Glove”. For the purpose of detecting the hand from an image, pre-trained Haar Feature-based Cascade Classifier is used. This particular classifier is selected because:
+
+-   It is an effective object detection method with pre-trained methods easily accessible on it’s [GitHub](https://github.com/opencv/opencv/tree/master/data) repository.
+-   It is specially focused on detecting human body parts from images and is thus quite reliable.
+-   It is one of the fewest algorithms to run in real-time. The key to its high performance is the use of integral image, which only performs basic operations in a very low processing time.
+-   The propsed model can therefore be used in real-time applications which require glove-mask detection for safety purposes due to the outbreak of Covid-19. This project can be integrated with embedded systems for application in airports, railway stations, offices, schools, and public places to ensure that public safety guidelines are followed.
+
+**The CNN Network architecture**  
+![](https://raw.githubusercontent.com/mk-gurucharan/Face-Mask-Detection/master/cnn_facemask.png)
+
+**Step 3:** Evaluate Performance and save model to disk. Our model performs very well on real life data. Below is an example:
+
+# Installation
+
+We have tried to keep the installation process as simple as possible. Please keep note of the following points:
+
+-   Please follow the exact steps.The App is tested and verified only if each step is followed.
+-   First time deployment of app might take 1 -2 minutes.
+-   Note that all commands are to be entered with Admin Permissions in the command line.
+
+Step 1 - Clone the Repository.
+
+```sh
+$ git clone https://github.com/Ridam2k/ILLUMINATI-Glove-Recognition
+$ cd ILLUMINATI-Glove-Recognition
+
+```
+
+Step 2 - Create Virtual Env and Download Reqs.
+
+```sh
+$ mkvirtualenv tester (optional)
+$ pip3 install -r requirements.txt
+OR
+$ mkvirtualenv tester (optional)
+$ pip install -r requirements.txt
+
+```
+
+And that’s it! You are done. Let’s now get this working.
+
+# Usage
+
+Step 1: CD into the folder  
+Step 2: Enter the following code
+
+> Webcam Mode
+
+```sh
+$ python glove_detection.py 
+OR
+$ python3 glove_detection .py 
+
+```
+
+# That’s it !
+
+Team Illuminati  
+NSUT, Delhi
